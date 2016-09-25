@@ -12,7 +12,7 @@
 	<div id="${controlId}"></div>
 	<#else>
 	<select id="${controlId}" name="-">
-		<option value="" selected="selected">${msg("alvex.label.choose_entity")}</option>
+		<option value="" selected="selected">${msg("masterdata.new.datalist.choose_entity")}</option>
 	</select>
 	</#if>
 </div>

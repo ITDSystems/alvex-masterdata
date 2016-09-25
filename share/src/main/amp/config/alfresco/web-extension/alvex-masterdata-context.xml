@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
 <beans>
-	<bean id="alvex-master-data-configs-deployer" class="org.springframework.extensions.config.ConfigBootstrap" init-method="register" depends-on="">
+	<bean id="alvex-masterdata-configs-deployer" class="org.springframework.extensions.config.ConfigBootstrap" init-method="register" depends-on="">
 		<property name="configService" ref="web.config" />
 		<property name="configs">
 			<list>
@@ -9,5 +9,16 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="alvex-master-data" class="com.alvexcore.share.MasterDataExtension" parent="alvex-extension"/>
+
+	<bean id="alvex-masterdata-resources-deployer"
+		class="org.springframework.extensions.surf.util.ResourceBundleBootstrapComponent"
+		depends-on="">
+		<property name="resourceBundles">
+			<list>
+				<value>alfresco.web-extension.messages.alvex-masterdata</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="alvex-masterdata" class="com.alvexcore.share.MasterDataExtension" parent="alvex-extension"/>
 </beans>
