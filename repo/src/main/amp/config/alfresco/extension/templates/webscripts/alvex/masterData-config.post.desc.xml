@@ -1,0 +1,9 @@
+<webscript>
+  <shortname>MasterData - store config</shortname>
+  <description>MasterData - store config</description>
+  <url>/api/alvex/masterData-config</url>
+  <format default="json">argument</format>
+  <authentication>user</authentication>
+  <transaction>required</transaction>
+  <lifecycle>public_api</lifecycle>
+</webscript>

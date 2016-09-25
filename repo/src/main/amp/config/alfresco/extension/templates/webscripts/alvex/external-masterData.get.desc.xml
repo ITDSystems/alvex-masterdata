@@ -1,0 +1,9 @@
+<webscript>
+  <shortname>Get external masterData by url</shortname>
+  <description>Get external masterData by url</description>
+  <url>/api/alvex/external-masterData?url={url}</url>
+  <format default="json">argument</format>
+  <authentication>user</authentication>
+  <transaction>none</transaction>
+  <lifecycle>public_api</lifecycle>
+</webscript>
