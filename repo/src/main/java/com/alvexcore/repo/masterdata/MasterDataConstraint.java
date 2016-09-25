@@ -70,16 +70,22 @@ public class MasterDataConstraint extends ListOfValuesConstraint implements Seri
 	public List<String> getRawAllowedValues() {
 		// TODO - optimize
 		List<String> allowedValues = new ArrayList<String>();
+
+		// NodeRef source = alvexMasterDataService.getMasterDataSource(dataSourceName);
+
+
 		//RunAsWork<NodeRef> work = new alvexMasterDataService.getMasterDataSource(dataSourceName);
 		//NodeRef source = AuthenticationUtil.runAsSystem(work);
-		AuthenticationUtil.runAs(new RunAsWork<String>()
+
+		NodeRef source = AuthenticationUtil.runAs(new RunAsWork<NodeRef>()
          	{
-            		public String doWork() throws Exception
+            		public NodeRef doWork() throws Exception
             			{	
 					NodeRef source = alvexMasterDataService.getMasterDataSource(dataSourceName);
 					return source;
 				}
 			}, AuthenticationUtil.getSystemUserName());
+
 		List<Map<String,String>> data = alvexMasterDataService.getMasterData(source);
 		for(Map<String,String> item : data) {
 			String value = item.get("value");
